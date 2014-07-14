@@ -18,22 +18,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Intialize.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FluidMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Calculate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Operations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CreateProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Implementation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

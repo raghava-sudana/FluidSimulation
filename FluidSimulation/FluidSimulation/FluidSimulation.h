@@ -59,11 +59,7 @@ static const float ImpulseDensity = 1.0f;
 static const int NumJacobiIterations = 40;
 static const Vector2 ImpulsePosition = { g_iWidth / 2, - (int) SplatRadius / 2};
 
-static GLuint VertexQuad;
-//PPSurface -- Ping Pong Surface
-static PPSurface Velocity, Density, Pressure, Temperature;
-static Surface Divergence, Boundaries;
-static GLuint DrawProgram;
+
 
 void Advect(Surface velocity, Surface source, Surface boundaries, Surface dest, float dissipation);
 void Jacobi(Surface pressure, Surface divergence, Surface boundaries, Surface dest);
