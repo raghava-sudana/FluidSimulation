@@ -14,18 +14,6 @@ int main (int argc, char** argv)
 	Intialize();
 	Calculate(1);
 	glutDisplayFunc(Display);
-	//glutTimerFunc(125, Calculate, -1);
 	glutMainLoop();
 	return 0;
 }
-
-
-
-void render(void)
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glFlush();
-	glutSwapBuffers();
-}
-

@@ -9,7 +9,6 @@ static GLuint DrawProgram;
 void Intialize()
 {
 	Velocity = CreatePPSurface(g_iWidth, g_iHeight, 2);
-
 	Density = CreatePPSurface(g_iWidth, g_iHeight, 1);
 	Pressure = CreatePPSurface(g_iWidth, g_iHeight, 1);
 	Temperature = CreatePPSurface(g_iWidth, g_iHeight, 1);
@@ -56,7 +55,7 @@ PPSurface CreatePPSurface(GLsizei width, GLsizei height, int Components)
 	PPSurface ppsurface;
 	ppsurface.Ping = CreateSurface(width, height, Components);
 	ppsurface.Pong = CreateSurface(width, height, Components);
-
+	
 	return ppsurface;
 
 }
@@ -95,7 +94,6 @@ Surface CreateSurface(GLsizei width, GLsizei height, int Components)
 
     return surface;
 
-
 }
 
 void CreateBoundaries(Surface dest, int width, int height)
@@ -108,8 +106,8 @@ void CreateBoundaries(Surface dest, int width, int height)
 	GLuint vao;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
-	//GLuint program = CreateProgram("Fluid.Vertex", 0, "Fluid.Fill");
-	//glUseProgram(program);
+	GLuint program = CreateProgram("Vertex.ver", "Fill.frag");
+	glUseProgram(program);
 
 	#define T 0.9999f
     float positions[] = { -T, -T, T, -T, T,  T, -T,  T, -T, -T };
@@ -125,7 +123,7 @@ void CreateBoundaries(Surface dest, int width, int height)
     glDrawArrays(GL_LINE_STRIP, 0, 5);
     glDeleteBuffers(1, &vbo);
 
-	//glDeleteProgram(program);
+	glDeleteProgram(program);
     glDeleteVertexArrays(1, &vao);
 
 }
@@ -166,7 +164,7 @@ void Calculate(int data)
     SwapSurfaces(&Velocity);
 
 	glutPostRedisplay();
-	glutTimerFunc(125, Calculate, -1);
+	glutTimerFunc(30, Calculate, 1);
 }
 
 
@@ -180,7 +178,7 @@ void Display(void)
 
 	// Set render target to the backbuffer:
     glViewport(0, 0, g_iWidth, g_iHeight);
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glBindFramebuffer(GL_FRAMEBUFFER, 1);
     glClearColor(0, 1, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
