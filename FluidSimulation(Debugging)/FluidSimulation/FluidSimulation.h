@@ -47,7 +47,7 @@ void InitOps();
 void SwapSurfaces(PPSurface* ppsurface);
 
 static const float AmbientTemperature = 0.0f;
-static const float ImpulseTemperature = 10.0f;
+static const float ImpulseTemperature = 3.0f;
 static const float ImpulseDensity = 1.0f;
 static const int NumJacobiIterations = 40;
 static const float TimeStep = 0.125f;

@@ -20,6 +20,7 @@ void main()
     }
 
     vec2 u = texture(VelocityTexture, InverseSize * fragCoord).xy;
+	u.y -= (0.98 * TimeStep);
     vec2 coord = InverseSize * (fragCoord - TimeStep * u);
     FragColor = Dissipation * texture(SourceTexture, coord);
 }
